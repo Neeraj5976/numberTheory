@@ -25,11 +25,9 @@ int main() {
      cin>>a>>b;
      a=min(a,b);
      b=max(a,b);
-     if(__gcd(a,b)!=1) cout<<" int sol not exist";
-     else
-     {Triplet ans=extendedEuclid(a,b);
+     Triplet ans=extendedEuclid(a,b);
      cout<<"x="<<ans.x<<endl<<"y="<<ans.y<<endl;
-     cout<<"gcd="<<ans.gcd;}
+     cout<<"gcd="<<ans.gcd;
 	return 0;
 }
 
