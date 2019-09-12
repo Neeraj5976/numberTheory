@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+class Triplet{
+  public:    
+    int x,y;
+    int gcd;
+};
+Triplet extendedEuclid(int a,int b){
+    if(b==0){
+        Triplet ans;
+        ans.x=1;
+        ans.y=0;
+        ans.gcd=a;
+        return ans;
+    }
+ Triplet smallOutput=extendedEuclid(b,a%b);
+ Triplet ans;
+ ans.x=smallOutput.y;
+ ans.y=smallOutput.x-(a/b)*smallOutput.y;
+ ans.gcd=smallOutput.gcd;
+ return ans;
+}
+int mMinverse(int a,int b){
+    Triplet ans=extendedEuclid(a,b);
+    return ans.x;
+}
+int main() {
+     int a,m;
+     cin>>a>>m;
+     if(__gcd(a,m)==1)  cout<<mMinverse(a,m);
+     else cout<<" int sol not exist"; 
+	return 0;
+}
+
+
+
